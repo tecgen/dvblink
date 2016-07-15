@@ -22,7 +22,10 @@ def correctName(input) :
 
 	extension = string.split(input, '.')
 	extension = extension[1]
-	return (filename + '.' + extension)	
+        if extension in filename:
+            return filename
+        else: 
+            return (filename + '.' + extension)	
 
 
 print(correctName(sys.argv[1]))
