@@ -15,13 +15,13 @@ do
     echo "converting only the audio stream and moving the video stream to new container"
     ffmpeg -i "$FILENAME" -c:v copy -c:a $AUDIOCODEC "$NAME.mp4"
 	mv $FILENAME converted
-	mv $FILENAME.mp4 ../
+	mv $NAME.mp4 ../
    elif [[ $RESOLUTION == *"720x576"* ]]
    then
     echo $FILENAME "is SD (and probably just mpeg2)"
     echo "converting video and audio stream"
 	ffmpeg -i "$FILENAME" -vcodec libx264 -r 25 -acodec $AUDIOCODEC "$NAME.mp4"
 	mv $FILENAME converted
-	mv $FILENAME.mp4 ../
+	mv $NAME.mp4 ../
    fi
 done
